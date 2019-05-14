@@ -64,6 +64,7 @@
       }
     }
 
+    #region Fix290802
     protected virtual bool IsDatasourceValid(string datasource)
     {
       return datasource.Length > 1 &&
@@ -73,6 +74,8 @@
              !datasource.StartsWith(LocalDatasources.Constants.FieldPrefix) &&
              !datasource.StartsWith(LocalDatasources.Constants.CodePrefix);
     }
+    #endregion
+
     protected virtual IQueryable<ExtendedSearchResultItem> AddSorting(List<SearchStringModel> model, IQueryable<ExtendedSearchResultItem> query)
     {
       foreach (SearchStringModel sort in model.Where(m => m.Type == "sort"))
